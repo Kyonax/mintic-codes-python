@@ -18,6 +18,7 @@ def graphicalConsoleUI (name,add):
     "employee-insert-position": "Cargo de Vendedor/Empleado seleccione una de las Opciones.\n[1] Vendedor\n\n-> ",
     "employee-insert-company": "Empresa a la que se encuentra Afiliado el Empleado.\n[1] Market Cicle\n\n-> ",
     "confirmation-data": "Ha completado todos los datos para Ingresar al nuevo "+add+"\n¿Desea Guardar los Cambios?\n[1] No, Deseo actualizar algunos Datos.\n[2] Sí, Deseo Guardar los Datos\n\n-> ",
+    "result-data-insert":"ESTOS SON LOS DATOS QUE HA INGRESADO EN LA BASE DE DATOS DE "+add,
     "overwrite-data": "¿Está seguro/segura que desea sobreescribir los datos previamente registrados del "+add+"?\n\n[Si] - [No] -> ",
     "validation-data": "¿Está seguro/segura que desea guardar los cambios? Una vez se guarden los Datos\nEl programa lo llevará a la anterior Interfaz.\n\n[Si] - [No] -> ",
     "validation-selection": "¿Está seguro/segura que desea proceder con esta opción? Una vez se guarden los Datos\nEl programa lo llevará a la anterior Interfaz.\n\n[Si] - [No] -> ",

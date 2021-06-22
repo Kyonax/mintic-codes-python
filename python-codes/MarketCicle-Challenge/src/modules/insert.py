@@ -56,21 +56,18 @@ def insertEmployee(name,code,position,company,comission):
 
     employeePrint = -1
     for employ in employeeDB["employee"]:     
-        print("1: "+employ["id"]+" 2: "+test+"Posi: "+str(employeePrint))             
-        time.sleep(0.5)      
         employeePrint = employeePrint+1
-        if employ["id"] == test:      
-            print("POSITIOn: "+str(employeePrint))     
-            time.sleep(4) 
+        if employ["id"] == test:                  
             break 
 
-    clearGUI()
-    print(consoleGUI("separador","none","none"))        
-    return print(tabulate(employeeDB["employee"][employeePrint],headers='keys',tablefmt="psql"))
+    clearGUI()     
+    print(consoleGUI("result-data-insert","VENDEDOR/EMPLEADO","none"))    
+    return print(tabulate([employeeDB["employee"][employeePrint]],headers='keys',tablefmt="psql"))
     
 
 
 def insertProduct():
+    
     return
 
 
