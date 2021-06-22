@@ -150,6 +150,16 @@ def exitFunction(employeeObj,comission):
     iterator = employeeObj.iterator + 7
     return "none", "none", iterator
 
+def employeeConfirmationData (employeeObj):
+    clearGUI()
+    iterator = employeeObj.iterator
+    key_confirmation = input(consoleGUI("confirmation-data","Vendedor/Empleado","none"))
+    if key_confirmation == 1:        
+        iterator = iterator-1        
+    else:
+        iterator = iterator+2
+    return iterator
+
 
 def employeeSelectParameter(number,employeeObj,comission):  
     key_overwrite, employeeObj.iterator = overWriteData(number,employeeObj)                                 

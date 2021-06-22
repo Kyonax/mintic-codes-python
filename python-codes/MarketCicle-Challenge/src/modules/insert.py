@@ -3,7 +3,7 @@ import time
 from tabulate import tabulate
 from ..functions.gui import consoleGUI, clearGUI
 from ..misc.employee import Employee
-from ..misc.employee_function import employee, employeeSelectParameter
+from ..misc.employee_function import employee, employeeSelectParameter,employeeConfirmationData
 from ..functions.stateManager import stateManagerRead, stateManagerWrite, stateManagerConsole
 
 
@@ -29,6 +29,9 @@ def insertEmployee(name,code,position,company,comission):
     while employeeObj.iterator <= 3:
         employeeObj.iterator = iterator + 1                        
         data, dataType, iterator = employeeSelectParameter(key_update, employeeObj,employeeObj.comission)                           
+        if employeeObj.name != "none" and employeeObj.code != "none" and employeeObj.position != "none" and employeeObj.company != None:
+            iterator = employeeConfirmationData(employeeObj)
+            if iterator > 4: break
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
         key_update = int(
@@ -36,7 +39,7 @@ def insertEmployee(name,code,position,company,comission):
         if dataType == "name":            
             employeeObj.name = data
         elif dataType == "id":            
-            employeeObj.id = data
+            employeeObj.code = data
         elif dataType == "position":            
             employeeObj.position = data
         elif dataType == "company":            
@@ -44,14 +47,26 @@ def insertEmployee(name,code,position,company,comission):
         else:            
             employeeObj.comission = data
 
-    employeeObj = employee(employeeObj.name, employeeObj.id,
-                           employeeObj.position, employeeObj.company, employeeObj.comission)
+    test = employeeObj.code
+
+    employeeObj = employee(employeeObj.name, employeeObj.code,
+                           employeeObj.position, employeeObj.company, str(employeeObj.comission))
     employeeDB["employee"].append(employeeObj)
     stateManagerWrite(json, employeeDB, 'database/Employee_db.json')
+
+    employeePrint = -1
+    for employ in employeeDB["employee"]:     
+        print("1: "+employ["id"]+" 2: "+test+"Posi: "+str(employeePrint))             
+        time.sleep(0.5)      
+        employeePrint = employeePrint+1
+        if employ["id"] == test:      
+            print("POSITIOn: "+str(employeePrint))     
+            time.sleep(4) 
+            break 
+
     clearGUI()
-    print(consoleGUI("separador","none","none"))
-    
-    return print(tabulate(employeeDB["employee"],headers='keys'))
+    print(consoleGUI("separador","none","none"))        
+    return print(tabulate(employeeDB["employee"][employeePrint],headers='keys',tablefmt="psql"))
     
 
 
