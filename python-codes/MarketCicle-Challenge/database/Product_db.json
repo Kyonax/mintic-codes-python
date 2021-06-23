@@ -1,1 +1,24 @@
-{"company": {"name": "Market-Client", "id": "M4RK3T3165M", "owner": "MinTIC", "contact": {"phone": "57-569-316-152", "email": "market_client@market.com"}}, "developer": {"name": "Cristian Moreno", "id": "1007378776", "company": "KyonaxCorp", "recruiter": "MinTIC", "nickname": "Kyonax", "contact": {"phone": "+57 3022539479", "mail": "kyonax25@gmail.com", "github": "Kyonax"}}, "product": [{"name": "Bike Premium", "brand": "Specialized", "color": "Rojo", "size": "XL", "price": "100", "iva": "3", "client": [{"name": "Kyonax", "code": "M2*0002M", "product": [{"name": "Bike Premium", "brand": "Specialized", "color": "Rojo", "size": "XL", "price": "100", "iva": "3", "client": [], "date": "none", "code": "M0*0000M"}, {"name": "Bike Avanzada", "brand": "Treck", "color": "Negro", "size": "XL", "price": "50", "iva": "3", "client": [], "date": "none", "code": "M1*0001M"}], "total_price": 0, "amount_products": 2}], "date": "none", "code": "M0*0000M"}, {"name": "Bike Avanzada", "brand": "Treck", "color": "Negro", "size": "XL", "price": "50", "iva": "3", "client": [{"name": "Kyonax", "code": "M2*0002M", "product": [{"name": "Bike Premium", "brand": "Specialized", "color": "Rojo", "size": "XL", "price": "100", "iva": "3", "client": [], "date": "none", "code": "M0*0000M"}, {"name": "Bike Avanzada", "brand": "Treck", "color": "Negro", "size": "XL", "price": "50", "iva": "3", "client": [], "date": "none", "code": "M1*0001M"}], "total_price": 0, "amount_products": 2}], "date": "none", "code": "M1*0001M"}]}
+{
+  "company": {
+    "name": "Market-Client",
+    "id": "M4RK3T3165M",
+    "owner": "MinTIC",
+    "contact": {
+      "phone": "57-569-316-152",
+      "email": "market_client@market.com"
+    }
+  },
+  "developer": {
+    "name": "Cristian Moreno",
+    "id": "1007378776",
+    "company": "KyonaxCorp",
+    "recruiter": "MinTIC",
+    "nickname": "Kyonax",
+    "contact": {
+      "phone": "+57 3022539479",
+      "mail": "kyonax25@gmail.com",
+      "github": "Kyonax"
+    }
+  },
+  "product": []
+}

@@ -2,8 +2,17 @@ import os
 #INTERFAZ GRÁFICA DEL USUARIO
 def graphicalConsoleUI (name,add):  
   textUI = {
-    "inicio": "- MARKET CICLE - VENTAS \nBienvenido/Bienvenida al programa de 'Ventas de Market Cicle' Seleccione alguna de las siguiente opciones"+
-    " para proceder a la ejecución del programa.\n",
+    "inicio": "- MARKET CICLE - VENTAS \nBienvenido/Bienvenida al programa de 'Ventas de Market Cicle' Este programa es el gestor principal de las ventas "+
+    "\nQue realiza Market-Cicle, con este programa puedes Registrar, Consultar, Listar, Remover y Vender productos de Market Cicle.\n\nContinuar? -> ",
+    "inicio-2":"- RECOMENDACIÓN -\nEl programa cuenta con 2 apartados, que puedes elegir para empezar a utilizar el programa,\n"+
+    " se te recomienda que leas atentamente y que navegues por el menú para que aprendas a usar el programa.\n\nContinuar? -> ",    
+    "inicio-options":"- TIENDA & CONFIGURACIÓN -\nSelecciona alguna de las opciones que encuentras abajo para comenzar a navegar.\n\n[1] Tienda\n[2] Configuración\n[3] Salir del Programa\n\n-> ",
+    "tienda": "- VENTAS & PRODUCTOS -\nEn este menu podrás encontrar el apartado de ventas y productos, aquí podrás comenzar a vender\n"+
+    " productos en nombre de Market Cicle y de igual manera Crearlos, Editarlos y Consultarlos por si lo necesitas.\n\n[1] Vender\n[2] Productos Market Cicle\n[3] Retroceder\n\n-> ",
+    "config": "- EMPLEADOS & REPORTES -\nEn este menu podrás encontrar el apartado administrativo, aquí podrás configurar a los nuevos Empleados\n"+
+    " y realizar reportes de las estadísticas de las ventas.\n\n[1] Empleados\n[2] Reportes\n[3] Retroceder\n\n-> ",
+    "sell": "- VENDER A NUEVO CLIENTE -\nEn este menu podrás encontrar el apartado administrativo, aquí podrás configurar a los nuevos Empleados\n"+
+    " y realizar reportes de las estadísticas de las ventas.\n\n[1] Empleados\n[2] Reportes\n[3] Retroceder\n\n-> ",
     "separador": "="*80+"\n",
     "insertar-init": "- MARKET CICLE - REGISTRO DE USUARIOS & PRODUCTOS\nSeleccione el nuevo dato que desea Ingresar, para proceder con el Registro:\n",
     "options-insert": "Nuevo Dato - \n[1] Vendedor/Empleado.\n[2] Producto.\n[3] Cliente\n\n-> ",        
@@ -37,6 +46,7 @@ def graphicalConsoleUI (name,add):
     "validation-store": "¿Desea Seguir realizando Ventas a este Usuario? Puede agregar las Ventas que desee\nSiempre y cuando cuente con el Stock necesario.\n\n[Si] - [No] -> ",
     "validation-selection": "¿Está seguro/segura que desea proceder con esta opción? Una vez se guarden los Datos\nLa desición grabará y registrará los Datos.\n\n[Si] - [No] -> ",
     "update-data": "Para proceder a realizar la correcta actualización de datos de los "+add+" digite el código que corresponde al Objeto.\n",    
+    "update-preview": "Está observando el "+add+" al que le realizará la Actualización.\n",    
     "exercise_description": "Este programa define "+str(add)+".",
     "in_data": "Porfavor digite "+str(add)+": ",    
     "number_positive": "EL NÚMERO "+str(add)+" ES POSITIVO.\n\n",

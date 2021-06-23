@@ -1,6 +1,7 @@
 import json
 import time
 from tabulate import tabulate
+import datetime
 from ..functions.logic import generateProductCode
 from ..functions.gui import consoleGUI, clearGUI
 from ..misc.employee import Employee
@@ -37,8 +38,9 @@ def insertEmployee(name,code,position,company,comission):
         employeeObj.iterator = iterator
         if iterator == 31: break
         if employeeObj.name != "none" and employeeObj.code != "none" and employeeObj.position != "none" and employeeObj.company != None:
-            iterator = employeeConfirmationData(employeeObj)
-            if iterator > 4: break
+            iterator,key_confirmation = employeeConfirmationData(employeeObj)                        
+            if int(key_confirmation) == 2:                
+                break
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
         key_update = int(
@@ -99,9 +101,10 @@ def insertProduct(name,brand,color,size,price,iva,client,date,code):
         productObj.iterator = iterator        
         if iterator == 31: break
         if productObj.name != "none" and productObj.brand != "none" and productObj.color != "none" and productObj.size != "none" and productObj.price != 0 and productObj.iva != 0:
-            iterator = productConfirmationData(productObj)
-            if iterator > 7: 
+            iterator, key_confirmation = productConfirmationData(productObj)
+            if int(key_confirmation) == 2: 
                 productObj.code = generateProductCode()
+                productObj.date = datetime.datetime.now()
                 break
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
@@ -133,7 +136,19 @@ def insertProduct(name,brand,color,size,price,iva,client,date,code):
             if prod["code"] == productCode:                  
                 break 
 
-        clearGUI()     
+        clearGUI()    
+        productNameProduct = []
+        iteratorExport = 0
+        for productData in productDB["product"]:  
+            for client in productData["client"]:            
+                productNameProduct.append("Cliente: "+str(client["name"])+" - ID: "+str(client["code"]))
+                productData["client"] = productNameProduct
+            iteratorExport = iteratorExport +1        
+
+        productPrint = -1
+        for cli in productDB["product"]:     
+            productPrint = productPrint+1   
+            
         print(consoleGUI("result-data-insert","PRODUCTO/BICICLETA","none"))    
         return print(tabulate([productDB["product"][productPrint]],headers='keys',tablefmt="psql"))
     return
@@ -164,8 +179,8 @@ def insertClient(name,code,product,total_price,amount_products):
         clientObj.iterator = iterator        
         if iterator == 31: break
         if clientObj.name != "none" and clientObj.product != []:
-            iterator = clientConfirmationData(clientObj)
-            if iterator > 3:                 
+            iterator, key_confirmation = clientConfirmationData(clientObj)
+            if int(key_confirmation) == 2:                 
                 clientObj.code = generateProductCode()                
                 clientObj.amount_products = len(productDB["product"])                
                 break

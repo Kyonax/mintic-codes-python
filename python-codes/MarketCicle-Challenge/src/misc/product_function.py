@@ -302,7 +302,7 @@ def productConfirmationData(productObj):
         iterator = iterator-1
     else:
         iterator = iterator+2
-    return iterator
+    return iterator, key_confirmation
 
 
 def productSelectParameter(number, productObj, client, date):

@@ -1,1 +1,24 @@
-{"company": {"name": "Market-Client", "id": "M4RK3T3165M", "owner": "MinTIC", "contact": {"phone": "57-569-316-152", "email": "market_client@market.com"}}, "developer": {"name": "Cristian Moreno", "id": "1007378776", "company": "KyonaxCorp", "recruiter": "MinTIC", "nickname": "Kyonax", "contact": {"phone": "+57 3022539479", "mail": "kyonax25@gmail.com", "github": "Kyonax"}}, "employee": [{"name": "Kyonax", "id": "M0*0000M", "position": "Vendedor", "company": {"name": "Market-Client", "id": "M4RK3T3165M", "owner": "MinTIC", "contact": {"phone": "57-569-316-152", "email": "market_client@market.com"}}, "comission": "0"}]}
+{
+  "company": {
+    "name": "Market-Client",
+    "id": "M4RK3T3165M",
+    "owner": "MinTIC",
+    "contact": {
+      "phone": "57-569-316-152",
+      "email": "market_client@market.com"
+    }
+  },
+  "developer": {
+    "name": "Cristian Moreno",
+    "id": "1007378776",
+    "company": "KyonaxCorp",
+    "recruiter": "MinTIC",
+    "nickname": "Kyonax",
+    "contact": {
+      "phone": "+57 3022539479",
+      "mail": "kyonax25@gmail.com",
+      "github": "Kyonax"
+    }
+  },
+  "employee": [ ]
+}

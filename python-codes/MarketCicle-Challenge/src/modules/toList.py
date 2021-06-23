@@ -13,7 +13,7 @@ def toListEmployees():
     print(consoleGUI("separador","none","none"))
     print(consoleGUI("succes","Se ha Mostrado la Lista de Vendedores/Empleados con éxito.","001"))
     print(tabulate(employeeDB["employee"],headers='keys',tablefmt="psql"))
-    time.sleep(6)
+    key_continue = input("\n\nContinuar? -> ")
     clearGUI()
     print(consoleGUI("separador","none","none"))
     print(consoleGUI("succes","Se han Mostrado los Vendedores/Empleados con éxito.","001"))
@@ -21,8 +21,7 @@ def toListEmployees():
     return
 
 def toListProducts():
-    productDB = stateManagerRead(json,"database/Product_db.json")
-    clientDB = stateManagerRead(json,"database/Client_db.json")
+    productDB = stateManagerRead(json,"database/Product_db.json")    
     clearGUI()
     productNameProduct = []
     iteratorExport = 0
@@ -50,10 +49,23 @@ def toListProducts():
 def toListClients():
     clientDB = stateManagerRead(json,"database/Client_db.json")
     clearGUI()
+
+    productNameProduct = []
+    iteratorExport = 0
+    for productData in clientDB["client"]:  
+        for client in productData["product"]:            
+            productNameProduct.append("Producto: "+str(client["name"])+" - Código: "+str(client["code"]))
+            productData["product"] = productNameProduct
+        iteratorExport = iteratorExport +1        
+
+    productPrint = -1
+    for cli in clientDB["client"]:     
+        productPrint = productPrint+1
+
     print(consoleGUI("separador","none","none"))
     print(consoleGUI("succes","Se ha Mostrado la Lista de Clientes con éxito.","001"))
     print(tabulate(clientDB["client"],headers='keys',tablefmt="psql"))
-    time.sleep(6)
+    key_continue = input("\n\nContinuar? -> ")
     clearGUI()
     print(consoleGUI("separador","none","none"))
     print(consoleGUI("succes","Se ha Mostrado los Mimebtros con éxito.","001"))
