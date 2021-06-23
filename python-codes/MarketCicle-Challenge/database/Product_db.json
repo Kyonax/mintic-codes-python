@@ -20,5 +20,28 @@
       "github": "Kyonax"
     }
   },
-  "product": []
+  "product": [
+    {
+      "name": "Bike",
+      "brand": "Specialized",
+      "color": "Rojo-Negro",
+      "size": "XL",
+      "price": "356",
+      "iva": "3",
+      "client": [],
+      "date": "2021-06-23 10:51:01.697999",
+      "code": "M0*0000M"
+    },
+    {
+      "name": "Bicicleta Premium",
+      "brand": "Specialized",
+      "color": "Rojo-Negro",
+      "size": "XL",
+      "price": "300000",
+      "iva": "3",
+      "client": [],
+      "date": "2021-06-23 11:55:14.740188",
+      "code": "M1*0001M"
+    }
+  ]
 }

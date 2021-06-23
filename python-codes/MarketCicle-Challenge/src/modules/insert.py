@@ -191,21 +191,24 @@ def insertClient(name,code,product,total_price,amount_products):
         if dataType == "name":            
             clientObj.name = data            
         elif dataType == "product":            
-            clientObj.product = data     
+            clientObj.product = data   
+
+    codeProductObj = "none"  
     
     if iterator != 31:        
         iteratorProduct = 0
         for productObj in productDB["product"]:                 
             for productsObj in clientObj.product:                
-                if productObj["code"] == productsObj["code"]:  
+                if productObj["code"] == productsObj["code"]: 
+                    codeProductObj = productObj["code"] 
                     clientCode = clientObj.code
                     clientObj = client(clientObj.name, clientObj.code,clientObj.product,clientObj.total_price,clientObj.amount_products)
                     productDB["product"][iteratorProduct]["client"].append(clientObj)
                     clientObj = Client(clientObj["name"], clientObj["code"], clientObj["product"], clientObj["total_price"],clientObj["amount_products"])        
                     stateManagerWrite(json,productDB,'database/Product_db.json')                
                     time.sleep(1)
-            iteratorProduct = iteratorProduct+1
-        
+            iteratorProduct = iteratorProduct+1        
+
         for productData in productDB["product"]:  
             if productData["client"] != None:                
                 for itemSum in productData["client"]:                                        
@@ -234,5 +237,6 @@ def insertClient(name,code,product,total_price,amount_products):
                     clientNameProduct.append("Producto: "+str(products["name"])+" - ID: "+str(products["code"]))
                     clientData["product"] = clientNameProduct
             iteratorExport = iteratorExport +1
-        return print(tabulate([clientDB["client"][clientPrint]],headers='keys',tablefmt="psql"))
+            input(tabulate([clientDB["client"][clientPrint]],headers='keys',tablefmt="psql")+"\n\nContinuar? -> ")
+        return codeProductObj
     return    

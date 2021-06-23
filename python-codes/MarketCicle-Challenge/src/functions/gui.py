@@ -11,6 +11,8 @@ def graphicalConsoleUI (name,add):
     "para proceder con el programa selecciones alguna de las siguientes opciones.\n\n[1] Insertar Nuevo Vendedor/Empleado\n[2] Listar los Vendedores/Empleados\n[3] Consultar por un Vendedor/Empleado\n[4] Actualizar la información de un Vendedor/Empleado\n[5] Eliminar a un Vendedor/Empleado\n[6] Salir\n\n-> ",
     "product-options": "- PRODUCTOS/BICICLETAS -\nEn este menu podrás Modificar los datos de los Productos/Bicicletas \n"+
     "para proceder con el programa selecciones alguna de las siguientes opciones.\n\n[1] Insertar Nuevo Producto/Bicicleta\n[2] Listar los Productos/Bicicletas\n[3] Consultar por Producto/Bicicleta\n[4] Actualizar la información de un Producto/Bicicleta\n[5] Eliminar un Producto/Bicicleta\n[6] Salir\n\n-> ",
+    "client-options": "- CLIENTES -\nEn este menu podrás Modificar los datos de los Clientes y Realizar Ventas \n"+
+    "para proceder con el programa selecciones alguna de las siguientes opciones.\n\n[1] Realizar Nueva Venta\n[2] Listar los Clientes que ha Comprado\n[3] Consultar por un Cliente\n[4] Actualizar la información de un Cliente\n[5] Eliminar un Cliente\n[6] Salir\n\n-> ",
     "employee_code_obj":"- SOLICITUD DE CÓDIGO -\nLa función que acaba de escoger necesita de un código para ser correctamente ejecutada, si el código\n"+
     "No es correcto, puede que no obtenga los resultados que espera, si necesita saber la ID de algún "+add+" puede ir a la función de Listar. Digite el código del "+add+"\n\n-> ",
     "config": "- EMPLEADOS & REPORTES -\nEn este menu podrás encontrar el apartado administrativo, aquí podrás configurar a los nuevos Empleados\n"+
