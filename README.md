@@ -31,7 +31,7 @@ EL reto fue realizado con varias tecnologías de Python entre ellas se encuentra
 - [**Listas**](https://www.w3schools.com/python/python_lists.asp)
 - [**Estructuras de Datos**](https://www.w3schools.in/data-structures-tutorial/intro/)
 - [**Base de Datos usando .JSON**](https://www.w3schools.com/python/python_json.asp)
-- [**Programación Orientada a Objetos (Clases & Objetos) **](https://www.w3schools.com/python/python_classes.asp)
+- [**Programación Orientada a Objetos (Clases & Objetos)**](https://www.w3schools.com/python/python_classes.asp)
 - [**Try Catch & Exepciones**](https://www.w3schools.com/python/python_try_except.asp)
 - [**Recursividad**](https://www.w3schools.com/python/gloss_python_function_recursion.asp)
 
