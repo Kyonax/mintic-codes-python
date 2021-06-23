@@ -1,8 +1,4 @@
 import json
-import time
-from ..misc.employee import Employee
-from ..misc.product import Product
-from ..misc.client import Client
 from ..functions.gui import consoleGUI, clearGUI
 from ..functions.stateManager import stateManagerRead, stateManagerWrite, stateManagerConsole
 
@@ -10,12 +6,9 @@ from ..functions.stateManager import stateManagerRead, stateManagerWrite, stateM
 def removeEmployee(employeeCode):    
     employeeDB = stateManagerRead(json,"database/Employee_db.json")
     iterator = 0
-    for employee in employeeDB["employee"]:
-        print(str(employee))
-        time.sleep(3)
-        print(str(employee["id"]))
+    for employee in employeeDB["employee"]:        
         if employee["id"] == employeeCode:
-            employeeDB["employee"][iterator] = ""
+            del employeeDB["employee"][iterator]
         iterator = iterator +1
     stateManagerWrite(json, employeeDB, 'database/Employee_db.json')
     clearGUI()
