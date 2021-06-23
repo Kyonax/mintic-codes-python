@@ -1,11 +1,11 @@
 class Client(object):
-    def __init__(self,name,code,product,price,amount):
+    def __init__(self,name,code,product,total_price,amount_products):
         self._iterator = 0        
         self._name = name
         self._code = code
         self._product = product
-        self._price = price
-        self._amount = amount
+        self._total_price = total_price
+        self._amount_products = amount_products
 
     @property
     def iterator(self):
@@ -41,16 +41,16 @@ class Client(object):
     
     @property
     def price(self):
-        return self._price
+        return self._total_price
     
     @price.setter
     def price(self,x):
-        self._price= x
+        self._total_price= x
     
     @property
     def amount(self):
-        return self._amount
+        return self._amount_products
 
     @amount.setter
     def amount(self,x):
-        self._amount = x
+        self._amount_products = x

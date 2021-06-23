@@ -22,6 +22,24 @@ def generateCode ():
     finalCode = firstCode+"*"+secondCode+companyName[0]    
     return finalCode
 
+def generateProductCode ():
+    productDB = stateManagerRead(json,'database/Product_db.json')
+    companyName = str(productDB["company"]["name"])
+    productLength = len(productDB["product"])
+    firstCode = companyName[0]+str(productLength)
+
+    if productLength < 10:
+        secondCode = "000"+str(productLength)
+    elif productLength >= 10 and productLength < 100:
+        secondCode = "00"+str(productLength)+"0"
+    elif productLength >= 100 and productLength < 1000:
+        secondCode = "0"+str(productLength)+"00"
+    elif productLength >= 1000 and productLength < 10000:
+        secondCode = str(productLength)+"000"
+
+    finalCode = firstCode+"*"+secondCode+companyName[0]    
+    return finalCode
+
 def createCode ():
     employeeDB = stateManagerRead(json,'database/Employee_db.json')
     companyName = str(employeeDB["company"]["name"])

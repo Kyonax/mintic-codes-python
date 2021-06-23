@@ -1,5 +1,5 @@
 class Product(object):
-    def __init__(self,name,brand,color,size,price,iva,client,date):
+    def __init__(self,name,brand,color,size,price,iva,client,date,code):
         self._iterator = 0        
         self._name = name
         self._brand = brand
@@ -9,6 +9,7 @@ class Product(object):
         self._iva = iva
         self._client = client
         self._date = date
+        self._code = code
 
     @property
     def iterator(self):
@@ -60,24 +61,32 @@ class Product(object):
 
     @property
     def client(self):
-        return self._price
+        return self._client
 
     @client.setter
     def client(self,x):
-        self._price = x
+        self._client = x
 
     @property
     def iva(self):
-        return self._price
+        return self._iva
 
     @iva.setter
     def iva(self,x):
-        self._price = x
+        self._iva = x
 
     @property
     def date(self):
-        return self._price
+        return self._date
 
     @date.setter
     def date(self,x):
-        self._price = x
+        self._date = x
+
+    @property
+    def code(self):
+        return self._code
+
+    @code.setter
+    def code(self,x):
+        self._code = x

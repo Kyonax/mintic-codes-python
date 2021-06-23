@@ -1,8 +1,7 @@
-from ..functions.gui import consoleGUI, clearGUI
-from ..functions.logic import generateCode, createCode
 import time
 import json
-from .employee import Employee
+from ..functions.gui import consoleGUI, clearGUI
+from ..functions.logic import generateCode, createCode
 from ..functions.stateManager import stateManagerRead
 
 
@@ -119,7 +118,7 @@ def invalidParameter():
 
 def overWriteData(number,employeeObj):                 
     key_overwrite = "si"
-    iterator = employeeObj.iterator    
+    iterator = employeeObj.iterator      
     if number == 1 and employeeObj.name != "none":
         clearGUI()        
         print(consoleGUI("separador","none","none"))        
@@ -147,7 +146,7 @@ def overWriteData(number,employeeObj):
     return key_overwrite,iterator   
     
 def exitFunction(employeeObj,comission):
-    iterator = employeeObj.iterator + 7
+    iterator = 31
     return "none", "none", iterator
 
 def employeeConfirmationData (employeeObj):
