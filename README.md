@@ -41,14 +41,25 @@ EL reto fue realizado con varias tecnologías de Python entre ellas se encuentra
 
 El código fue debidamente depurado y se le realizó un proceso de debugging para que este se encontrara estable, los objetos que se usaron en el proyecto fueron:
 
-| Objetos                                                                                                                       |                                   Funciones                                    |         Perms |
-| ----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------: | ------------: |
-| [**Employee**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/employee.py) |              [**Employee_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/employee_function.py)               |           All |
-| [**Product**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/product.py)   |                              [**Product_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/product_function.py)                               |           All |
-| [**CLient**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/client.py)     |                       [**Client_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/client_function.py)                       |           All |
-| **Mod**                                                                                                                       |      `addrole`-`ban`-`bondage`-`clear`-`kick`-`poll`-`removerole`-`warn`      | Admins - Mods |
-| **Owner**                                                                                                                     |                   `prefix`-`news`-`putembeds`-`set` - `say`                   |         Owner |
-| **RolePlay**                                                                                                                  | `age`-`biography`-`dni`-`do`-`hug`-`kiss`-`me`-`ooc`-`pat`-`rep`-`try`-`work` |           All |
-| **Miscellaneous**                                                                                                             |                              `8ball`-`cat`-`dog`                              |           All |
-| **Games**                                                                                                                     |                           `fortnite`-`steam`-`apex`                           |           All |
-| **Store**                                                                                                                     |                                 `pay`-`store`                                 |           All |
+| Objetos                                                                                                                       |                                                                    Funciones                                                                    |
+| ----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| [**Employee**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/employee.py) | [**Employee_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/employee_function.py) |
+| [**Product**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/product.py)   |  [**Product_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/product_function.py)  |
+| [**CLient**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/client.py)     |   [**Client_function**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/misc/client_function.py)   |
+
+| Modulos                                                                                                                        |                                                              Otras Funciones                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| [**Consult**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/modules/consult.py) |          [**GUI**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/functions/gui.py)          |
+| [**Insert**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/modules/insert.py)   |        [**Logic**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/functions/logic.py)        |
+| [**Remove**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/modules/remove.py)   | [**StateManager**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/functions/stateManager.py) |
+| [**ToList**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/modules/toList.py)   |                                                           `No More Information`                                                            |
+| [**Update**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/src/modules/update.py)   |                                                           `No More Information`                                                            |
+
+
+Se dividieron los Archivos por su utilidad, esto para conseguir un buen orden y lograr llamar cada función de manera independiente, todo conectado al Módulo Principal:
+
+- [**MarketCicle.py**](https://replit.com/@Grupo79Ciclo1/mintic-codes-python#python-codes/MarketCicle-Challenge/MarketCicle.py) Siendo este el Archivo que se tiene que ejecutar para que funcione completamente el programa.
+
+#### Pasos para ejecutar el programa
+
+Utilizar la Shell que tiene por Default Replit

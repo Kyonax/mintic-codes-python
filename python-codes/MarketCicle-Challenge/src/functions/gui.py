@@ -79,7 +79,7 @@ def succesGUI (name,add, number):
   return textUI[str(name)]
 
 def clearGUI ():
-  return os.system('cls')
+  return os.system('clear')
 
 def consoleGUI (name,add,number):
     if number != "none":
