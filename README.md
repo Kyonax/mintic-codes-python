@@ -62,4 +62,7 @@ Se dividieron los Archivos por su utilidad, esto para conseguir un buen orden y 
 
 #### Pasos para ejecutar el programa
 
-Utilizar la Shell que tiene por Default Replit
+Utilizar la Shell que tiene por Default Replit y ejecutar las siguientes lineas de código:
+
+```cd python-codes/MarketCicle-Challenge/```
+```python MarketCicle.py```
