@@ -40,17 +40,17 @@ class Client(object):
         self._product = x
     
     @property
-    def price(self):
+    def total_price(self):
         return self._total_price
     
-    @price.setter
-    def price(self,x):
+    @total_price.setter
+    def total_price(self,x):
         self._total_price= x
     
     @property
-    def amount(self):
+    def amount_products(self):
         return self._amount_products
 
-    @amount.setter
-    def amount(self,x):
+    @amount_products.setter
+    def amount_products(self,x):
         self._amount_products = x

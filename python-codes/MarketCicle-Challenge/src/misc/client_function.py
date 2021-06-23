@@ -42,28 +42,28 @@ def clientProduct(clientObj):
         productDB = stateManagerRead(json, 'database/Product_db.json')
         amountProductsDB = []
         for data in productDB["product"]:
-            amountProductsDB.append(data["name"]+"- Marca: "+data["brand"]+" Color: "+data["color"]+" Tamaño: " +
-                                    data["size"]+" ID: "+data["code"]+" | Valor COP: $"+str(data["price"])+" + IVA del "+str(data["iva"])+"%")
+            amountProductsDB.append(data["name"]+" - Marca: "+data["brand"]+" - Color: "+data["color"]+" - Tamaño: " +
+                                    data["size"]+" - ID: "+data["code"]+" | Valor COP: $"+str(data["price"])+" + IVA del "+str(data["iva"])+"%"+" | Total: $"+str(int(data["price"])+((int(data["iva"])*100)/int(data["price"]))))
 
-        optionData = None
+        optionData = ""
         iteratorData = 0
-        for dataStr in amountProductsDB:
-            optionData = optionData+("["+iteratorData+"] "+dataStr+"\n")
+        for dataStr in amountProductsDB:            
+            optionData = optionData+"["+str(iteratorData)+"] "+dataStr+"\n"
             iteratorData = iteratorData + 1
 
         print(consoleGUI("separador", "none", "none"))
         product = input(consoleGUI("client-insert-product",
-                        optionData+"\n\n-> ", "none"))
+                        optionData, "none"))
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
         key_validation = input(consoleGUI("validation-data", "none", "none"))
         if key_validation.lower() == "si":
             clearGUI()
             print(consoleGUI("separador", "none", "none"))
-            print(consoleGUI("product-insert-id-show","Producto "+amountProductsDB[product], "none"))
+            print(consoleGUI("product-insert-id-show","Producto "+amountProductsDB[int(product)], "none"))
             print(consoleGUI("separador", "none", "none"))
             validation = True
-            clientObj.product = productDB["product"][product]
+            clientObj.product = productDB["product"][int(product)]
             time.sleep(3)
     return clientObj.product, data, iterator
 
@@ -103,7 +103,7 @@ def clientConfirmationData(clientObj):
     clearGUI()
     iterator = clientObj.iterator
     key_confirmation = input(consoleGUI(
-        "confirmation-data", "Cliente", "none"))
+        "confirmation-data", "Cliente y la nueva Venta.", "none"))
     if key_confirmation == 1:
         iterator = iterator-1
     else:

@@ -27,7 +27,7 @@ def graphicalConsoleUI (name,add):
     "product-insert-price": "Ingrese el Valor del Producto/Bicicleta sin puntos ni comas.\n\n-> ",
     "product-insert-iva": "Ingrese el IVA del Producto/Bicicleta sin puntos ni comas.\n\n-> ",
     "client-insert-name": "Dígite el Nombre Completo del nuevo Cliente que Realizará una compra.\n\n-> ",    
-    "client-insert-product": "Cargo de Vendedor/Empleado seleccione una de las Opciones.\n"+add+"\n\n-> ",
+    "client-insert-product": "Cargo de Vendedor/Empleado seleccione el Producto a Vender.\n"+add+"\n\n-> ",
     "client-insert-select": "Para ingresar un nuevo Cliente y proceder a una compra seleccione las opciones a continuación.\n",
     "client-insert-options": "Datos a Ingresar del Cliente y Nueva Venta\n[1] Nombre del Cliente.\n[2] Seleccionar Productos.\n[3] Salir\n\n-> ",
     "confirmation-data": "Ha completado todos los datos para Ingresar al nuevo "+add+"\n¿Desea Guardar los Cambios?\n[1] No, Deseo actualizar algunos Datos.\n[2] Sí, Deseo Guardar los Datos\n\n-> ",

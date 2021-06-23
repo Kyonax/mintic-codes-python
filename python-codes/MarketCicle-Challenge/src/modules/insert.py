@@ -5,7 +5,9 @@ from ..functions.logic import generateProductCode
 from ..functions.gui import consoleGUI, clearGUI
 from ..misc.employee import Employee
 from ..misc.product import Product
+from ..misc.client import Client
 from ..misc.employee_function import employee, employeeSelectParameter,employeeConfirmationData
+from ..misc.client_function import client, clientSelectParameter,clientConfirmationData
 from ..misc.product_function import product, productSelectParameter,productConfirmationData
 from ..functions.stateManager import stateManagerRead, stateManagerWrite, stateManagerConsole
 
@@ -137,11 +139,12 @@ def insertProduct(name,brand,color,size,price,iva,client,date,code):
     return
 
 def insertClient(name,code,product,total_price,amount_products):
-    clientObj = Product(name, code, product, total_price, amount_products)   
+    clientObj = Client(name, code, product, total_price, amount_products)   
     clearGUI()
     print(consoleGUI("separador", "none", "none"))
     print(consoleGUI("client-insert-select", "none", "none"))
     productDB = stateManagerRead(json, 'database/Product_db.json')
+    clientDB = stateManagerRead(json, 'database/Client_db.json')
     key_update = int(
         input(consoleGUI("client-insert-options", "none", "none")))
 
@@ -157,16 +160,14 @@ def insertClient(name,code,product,total_price,amount_products):
     iterator = 0     
     while clientObj.iterator <= 2:
         clientObj.iterator = iterator + 1                        
-        data, dataType, iterator = productSelectParameter(key_update, clientObj)                           
+        data, dataType, iterator = clientSelectParameter(key_update, clientObj)                           
         clientObj.iterator = iterator        
         if iterator == 31: break
-        if clientObj.name != "none" and clientObj.brand != "none" and clientObj.color != "none" and clientObj.size != "none" and clientObj.price != 0 and clientObj.iva != 0:
-            iterator = productConfirmationData(clientObj)
-            if iterator > 3: 
-                clientObj.code = generateProductCode()
-                clientObj.amount_products = len(productDB["product"])
-                for productData in productDB:
-                    clientObj.total_price = clientObj.total_price+productData["price"] 
+        if clientObj.name != "none" and clientObj.product != None:
+            iterator = clientConfirmationData(clientObj)
+            if iterator > 3:                 
+                clientObj.code = generateProductCode()                
+                clientObj.amount_products = len(productDB["product"])                
                 break
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
@@ -177,22 +178,45 @@ def insertClient(name,code,product,total_price,amount_products):
         elif dataType == "product":            
             clientObj.product = data        
 
-    if iterator != 31:
-        productCode = productObj.code
-        productObj = product(productObj.name, productObj.brand,productObj.color,productObj.size,productObj.price,productObj.iva,productObj.client,productObj.date,productObj.code)
-        productDB["product"].append(productObj)
-        stateManagerWrite(json, productDB, 'database/Product_db.json')
+    if iterator != 31:        
+        iteratorProduct = 0
+        for productObj in productDB["product"]:
+            if productObj["code"] == clientObj.product["code"]:  
+                clientCode = clientObj.code
+                clientObj = client(clientObj.name, clientObj.code,clientObj.product,clientObj.total_price,clientObj.amount_products)
+                productDB["product"][iteratorProduct]["client"].append(clientObj)
+                stateManagerWrite(json,productDB,'database/Product_db.json')                
+                time.sleep(1)
+            iteratorProduct = iteratorProduct+1
 
-        productPrint = -1
-        for prod in productDB["product"]:     
-            productPrint = productPrint+1
-            print(prod)
-            if prod["code"] == productCode:                  
+        clientObj = Client(clientObj["name"], clientObj["code"], clientObj["product"], clientObj["total_price"],clientObj["amount_products"])        
+        for productData in productDB["product"]:  
+            if productData["client"] != None:                
+                for itemSum in productData["client"]:                                        
+                    if str(itemSum["code"]) == str(clientObj.code):
+                        clientObj.total_price = int(clientObj.total_price)                                               
+                        clientObj.total_price = clientObj.total_price+(int(productData["price"])+((int(productData["iva"])*100)/int(productData["price"])))
+
+        clientObj = client(clientObj.name, clientObj.code,clientObj.product,clientObj.total_price,clientObj.amount_products)
+        clientDB["client"].append(clientObj)        
+        stateManagerWrite(json, clientDB, 'database/Client_db.json')
+
+        clientPrint = -1
+        for cli in clientDB["client"]:     
+            clientPrint = clientPrint+1
+            print(cli)
+            if cli["code"] == clientCode:                  
                 break 
 
         clearGUI()     
-        print(consoleGUI("result-data-insert","PRODUCTO/BICICLETA","none"))    
-        return print(tabulate([productDB["product"][productPrint]],headers='keys',tablefmt="psql"))
+        print(consoleGUI("result-data-insert","CLIENTE","none"))    
+        clientNameProduct = []
+        for clientData in clientDB["client"]:            
+            if clientData["code"] == clientObj["code"]:
+                clientNameProduct.append("Producto: "+str(clientData["product"]["name"])+" - ID: "+str(clientData["product"]["code"]))
+                clientData["product"] = clientNameProduct
+
+        return print(tabulate([clientDB["client"][clientPrint]],headers='keys',tablefmt="psql"))
     return    
 
 
