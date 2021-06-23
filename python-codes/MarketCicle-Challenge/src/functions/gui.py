@@ -5,14 +5,18 @@ def graphicalConsoleUI (name,add):
     "inicio": "- MARKET CICLE - VENTAS \nBienvenido/Bienvenida al programa de 'Ventas de Market Cicle' Este programa es el gestor principal de las ventas "+
     "\nQue realiza Market-Cicle, con este programa puedes Registrar, Consultar, Listar, Remover y Vender productos de Market Cicle.\n\nContinuar? -> ",
     "inicio-2":"- RECOMENDACIÓN -\nEl programa cuenta con 2 apartados, que puedes elegir para empezar a utilizar el programa,\n"+
-    " se te recomienda que leas atentamente y que navegues por el menú para que aprendas a usar el programa.\n\nContinuar? -> ",    
-    "inicio-options":"- TIENDA & CONFIGURACIÓN -\nSelecciona alguna de las opciones que encuentras abajo para comenzar a navegar.\n\n[1] Tienda\n[2] Configuración\n[3] Salir del Programa\n\n-> ",
-    "tienda": "- VENTAS & PRODUCTOS -\nEn este menu podrás encontrar el apartado de ventas y productos, aquí podrás comenzar a vender\n"+
-    " productos en nombre de Market Cicle y de igual manera Crearlos, Editarlos y Consultarlos por si lo necesitas.\n\n[1] Vender\n[2] Productos Market Cicle\n[3] Retroceder\n\n-> ",
+    "se te recomienda que leas atentamente y que navegues por el menú para que aprendas a usar el programa.\n\nContinuar? -> ",    
+    "inicio-options":"- TIENDA & CONFIGURACIÓN -\nSelecciona alguna de las opciones que encuentras abajo para comenzar a navegar.\n\n[1] Vendedores\n[2] Productos\n[3] Clientes\n[4] Salir\n\n-> ",
+    "employee-options": "- VENDEDORES/EMPLEADOS -\nEn este menu podrás Modificar los datos de los Vendedores/Empleados \n"+
+    "para proceder con el programa selecciones alguna de las siguientes opciones.\n\n[1] Insertar Nuevo Vendedor/Empleado\n[2] Listar los Vendedores/Empleados\n[3] Consultar por un Vendedor/Empleado\n[4] Actualizar la información de un Vendedor/Empleado\n[5] Eliminar a un Vendedor/Empleado\n[6] Salir\n\n-> ",
+    "product-options": "- PRODUCTOS/BICICLETAS -\nEn este menu podrás Modificar los datos de los Productos/Bicicletas \n"+
+    "para proceder con el programa selecciones alguna de las siguientes opciones.\n\n[1] Insertar Nuevo Producto/Bicicleta\n[2] Listar los Productos/Bicicletas\n[3] Consultar por Producto/Bicicleta\n[4] Actualizar la información de un Producto/Bicicleta\n[5] Eliminar un Producto/Bicicleta\n[6] Salir\n\n-> ",
+    "employee_code_obj":"- SOLICITUD DE CÓDIGO -\nLa función que acaba de escoger necesita de un código para ser correctamente ejecutada, si el código\n"+
+    "No es correcto, puede que no obtenga los resultados que espera, si necesita saber la ID de algún "+add+" puede ir a la función de Listar. Digite el código del "+add+"\n\n-> ",
     "config": "- EMPLEADOS & REPORTES -\nEn este menu podrás encontrar el apartado administrativo, aquí podrás configurar a los nuevos Empleados\n"+
     " y realizar reportes de las estadísticas de las ventas.\n\n[1] Empleados\n[2] Reportes\n[3] Retroceder\n\n-> ",
-    "sell": "- VENDER A NUEVO CLIENTE -\nEn este menu podrás encontrar el apartado administrativo, aquí podrás configurar a los nuevos Empleados\n"+
-    " y realizar reportes de las estadísticas de las ventas.\n\n[1] Empleados\n[2] Reportes\n[3] Retroceder\n\n-> ",
+    "sell": "- VENDER A NUEVO CLIENTE -\n Para proceder a realizar la venta primero debes identificarte\n"+
+    " Ingresa tu código de Vendedor, si no tienes uno puedes dirigirte al menú de Configuraciones.\n\n-> ",
     "separador": "="*80+"\n",
     "insertar-init": "- MARKET CICLE - REGISTRO DE USUARIOS & PRODUCTOS\nSeleccione el nuevo dato que desea Ingresar, para proceder con el Registro:\n",
     "options-insert": "Nuevo Dato - \n[1] Vendedor/Empleado.\n[2] Producto.\n[3] Cliente\n\n-> ",        

@@ -71,7 +71,7 @@ def insertEmployee(name,code,position,company,comission):
 
         clearGUI()     
         print(consoleGUI("result-data-insert","VENDEDOR/EMPLEADO","none"))    
-        return print(tabulate([employeeDB["employee"][employeePrint]],headers='keys',tablefmt="psql"))
+        return input(tabulate([employeeDB["employee"][employeePrint]],headers='keys',tablefmt="psql")+"\n\nContinuar? -> ")
     return
     
 
@@ -104,7 +104,7 @@ def insertProduct(name,brand,color,size,price,iva,client,date,code):
             iterator, key_confirmation = productConfirmationData(productObj)
             if int(key_confirmation) == 2: 
                 productObj.code = generateProductCode()
-                productObj.date = datetime.datetime.now()
+                productObj.date = str(datetime.datetime.now())
                 break
         clearGUI()
         print(consoleGUI("separador", "none", "none"))
@@ -150,7 +150,7 @@ def insertProduct(name,brand,color,size,price,iva,client,date,code):
             productPrint = productPrint+1   
             
         print(consoleGUI("result-data-insert","PRODUCTO/BICICLETA","none"))    
-        return print(tabulate([productDB["product"][productPrint]],headers='keys',tablefmt="psql"))
+        return input(tabulate([productDB["product"][productPrint]],headers='keys',tablefmt="psql")+"\n\nContinuar? -> ")
     return
 
 def insertClient(name,code,product,total_price,amount_products):
