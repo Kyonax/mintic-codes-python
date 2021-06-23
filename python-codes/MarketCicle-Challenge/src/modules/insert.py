@@ -163,7 +163,7 @@ def insertClient(name,code,product,total_price,amount_products):
         data, dataType, iterator = clientSelectParameter(key_update, clientObj)                           
         clientObj.iterator = iterator        
         if iterator == 31: break
-        if clientObj.name != "none" and clientObj.product != None:
+        if clientObj.name != "none" and clientObj.product != []:
             iterator = clientConfirmationData(clientObj)
             if iterator > 3:                 
                 clientObj.code = generateProductCode()                
@@ -174,22 +174,23 @@ def insertClient(name,code,product,total_price,amount_products):
         key_update = int(
             input(consoleGUI("client-insert-options", "none", "none")))
         if dataType == "name":            
-            clientObj.name = data
+            clientObj.name = data            
         elif dataType == "product":            
-            clientObj.product = data        
-
+            clientObj.product = data     
+    
     if iterator != 31:        
         iteratorProduct = 0
-        for productObj in productDB["product"]:
-            if productObj["code"] == clientObj.product["code"]:  
-                clientCode = clientObj.code
-                clientObj = client(clientObj.name, clientObj.code,clientObj.product,clientObj.total_price,clientObj.amount_products)
-                productDB["product"][iteratorProduct]["client"].append(clientObj)
-                stateManagerWrite(json,productDB,'database/Product_db.json')                
-                time.sleep(1)
+        for productObj in productDB["product"]:                 
+            for productsObj in clientObj.product:                
+                if productObj["code"] == productsObj["code"]:  
+                    clientCode = clientObj.code
+                    clientObj = client(clientObj.name, clientObj.code,clientObj.product,clientObj.total_price,clientObj.amount_products)
+                    productDB["product"][iteratorProduct]["client"].append(clientObj)
+                    clientObj = Client(clientObj["name"], clientObj["code"], clientObj["product"], clientObj["total_price"],clientObj["amount_products"])        
+                    stateManagerWrite(json,productDB,'database/Product_db.json')                
+                    time.sleep(1)
             iteratorProduct = iteratorProduct+1
-
-        clientObj = Client(clientObj["name"], clientObj["code"], clientObj["product"], clientObj["total_price"],clientObj["amount_products"])        
+        
         for productData in productDB["product"]:  
             if productData["client"] != None:                
                 for itemSum in productData["client"]:                                        
@@ -211,33 +212,12 @@ def insertClient(name,code,product,total_price,amount_products):
         clearGUI()     
         print(consoleGUI("result-data-insert","CLIENTE","none"))    
         clientNameProduct = []
-        for clientData in clientDB["client"]:            
-            if clientData["code"] == clientObj["code"]:
-                clientNameProduct.append("Producto: "+str(clientData["product"]["name"])+" - ID: "+str(clientData["product"]["code"]))
-                clientData["product"] = clientNameProduct
-
+        iteratorExport = 0
+        for clientData in clientDB["client"]:  
+            for products in clientData["product"]:
+                if clientData["code"] == clientObj["code"]:
+                    clientNameProduct.append("Producto: "+str(products["name"])+" - ID: "+str(products["code"]))
+                    clientData["product"] = clientNameProduct
+            iteratorExport = iteratorExport +1
         return print(tabulate([clientDB["client"][clientPrint]],headers='keys',tablefmt="psql"))
     return    
-
-
-def insertData(type, data):
-    consoleGUI("separador", "none", "none")
-    consoleGUI("insertar-init", "none", "none")
-    key_data = input(consoleGUI("options-insert", "none", "none"))
-    selectDataType(key_data)
-
-# TIPO DE DATO NO EXISTENTE
-def invalidDataType():
-    raise print(consoleGUI(
-        "error", "No se encuentra el dato digitado", "E-002"))
-# FINALIZACIÓN DE LA ALERTA
-
-# SELECCIÓN DE FUNCIONES (tipo de insercción)
-
-
-def selectDataType(number):
-    DataType = {
-        1: employee,
-    }
-    selected = DataType.get(number, invalidDataType)
-    return selected(number)

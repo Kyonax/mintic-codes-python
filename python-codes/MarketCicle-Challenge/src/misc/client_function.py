@@ -36,35 +36,44 @@ def clientName(clientObj):
 def clientProduct(clientObj):
     iterator = clientObj.iterator
     validation = False
+    validationStore = False
     data = "product"
-    while validation == False:
-        clearGUI()
-        productDB = stateManagerRead(json, 'database/Product_db.json')
-        amountProductsDB = []
-        for data in productDB["product"]:
-            amountProductsDB.append(data["name"]+" - Marca: "+data["brand"]+" - Color: "+data["color"]+" - Tamaño: " +
-                                    data["size"]+" - ID: "+data["code"]+" | Valor COP: $"+str(data["price"])+" + IVA del "+str(data["iva"])+"%"+" | Total: $"+str(int(data["price"])+((int(data["iva"])*100)/int(data["price"]))))
+    while validationStore == False:
+        while validation == False:
+            clearGUI()
+            productDB = stateManagerRead(json, 'database/Product_db.json')
+            amountProductsDB = []
+            for data in productDB["product"]:
+                amountProductsDB.append(data["name"]+" - Marca: "+data["brand"]+" - Color: "+data["color"]+" - Tamaño: " +
+                                        data["size"]+" - ID: "+data["code"]+" | Valor COP: $"+str(data["price"])+" + IVA del "+str(data["iva"])+"%"+" | Total: $"+str(int(data["price"])+((int(data["iva"])*100)/int(data["price"]))))
 
-        optionData = ""
-        iteratorData = 0
-        for dataStr in amountProductsDB:            
-            optionData = optionData+"["+str(iteratorData)+"] "+dataStr+"\n"
-            iteratorData = iteratorData + 1
+            optionData = ""
+            iteratorData = 0
+            for dataStr in amountProductsDB:            
+                optionData = optionData+"["+str(iteratorData)+"] "+dataStr+"\n"
+                iteratorData = iteratorData + 1
 
-        print(consoleGUI("separador", "none", "none"))
-        product = input(consoleGUI("client-insert-product",
-                        optionData, "none"))
-        clearGUI()
-        print(consoleGUI("separador", "none", "none"))
-        key_validation = input(consoleGUI("validation-data", "none", "none"))
-        if key_validation.lower() == "si":
+            print(consoleGUI("separador", "none", "none"))
+            product = input(consoleGUI("client-insert-product",
+                            optionData, "none"))
             clearGUI()
             print(consoleGUI("separador", "none", "none"))
-            print(consoleGUI("product-insert-id-show","Producto "+amountProductsDB[int(product)], "none"))
-            print(consoleGUI("separador", "none", "none"))
-            validation = True
-            clientObj.product = productDB["product"][int(product)]
-            time.sleep(3)
+            key_validation = input(consoleGUI("validation-data", "none", "none"))
+            if key_validation.lower() == "si":
+                clearGUI()
+                print(consoleGUI("separador", "none", "none"))
+                print(consoleGUI("product-insert-id-show","Producto "+amountProductsDB[int(product)], "none"))
+                print(consoleGUI("separador", "none", "none"))
+                validation = True                
+                clientObj.product.append(productDB["product"][int(product)])
+                time.sleep(3)
+        clearGUI()       
+        key_store_validation = input(consoleGUI("validation-store", "none", "none"))
+        if key_store_validation.lower() == "no":
+            clearGUI()
+            validationStore = True
+        elif key_store_validation.lower() == "si":
+            validation = False
     return clientObj.product, data, iterator
 
 # TIPO DE DATO NO EXISTENTE
@@ -82,13 +91,6 @@ def overWriteData(number, clientObj):
         print(consoleGUI("separador", "none", "none"))
         key_overwrite = input(consoleGUI(
             "overwrite-data", "\nCliente "+clientObj.name, "none"))
-        iterator = clientObj.iterator - 1
-        clientObj.iterator = iterator
-    elif number == 2 and clientObj.product != None:
-        clearGUI()
-        print(consoleGUI("separador", "none", "none"))
-        key_overwrite = input(consoleGUI(
-            "overwrite-data", "\nProducto "+clientObj.name+" producto "+clientObj.product["Name"]+" de Código "+clientObj.product["code"], "none"))
         iterator = clientObj.iterator - 1
         clientObj.iterator = iterator    
     return key_overwrite, iterator
