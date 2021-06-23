@@ -178,4 +178,5 @@ def selectOption(number,obj):
     return selected
 
 welcomeMessage()
+graph()
 start()
